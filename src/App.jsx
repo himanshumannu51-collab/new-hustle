@@ -1,32 +1,29 @@
-import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
-// Pages
-import HomePage from "./pages/HomePage";
-import HustlesPage from "./pages/HustlesPage";
-import ToolsPage from "./pages/ToolsPage";
-import GuidesPage from "./pages/GuidesPage";
-import ContactPage from "./pages/ContactPage";
-
-// Components
-import NavBar from "./components/NavBar";
-import Footer from "./components/Footer";
+import React, { useState } from 'react';
+import Home from './pages/Home';
+import Hustles from './pages/Hustles';
+import Guides from './pages/Guides';
+import Contact from './pages/Contact';
 
 function App() {
+  const [page, setPage] = useState('home');
+
   return (
-    <Router>
-      <NavBar />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/hustles" element={<HustlesPage />} />
-        <Route path="/tools" element={<ToolsPage />} />
-        <Route path="/guides" element={<GuidesPage />} />
-        <Route path="/contact" element={<ContactPage />} />
-      </Routes>
-      <Footer />
-    </Router>
+    <div>
+      <nav style={{ display: 'flex', gap: '1rem', padding: '1rem' }}>
+        <button onClick={() => setPage('home')}>Home</button>
+        <button onClick={() => setPage('hustles')}>Hustles</button>
+        <button onClick={() => setPage('guides')}>Guides</button>
+        <button onClick={() => setPage('contact')}>Contact</button>
+      </nav>
+
+      <main style={{ padding: '1rem' }}>
+        {page === 'home' && <Home />}
+        {page === 'hustles' && <Hustles />}
+        {page === 'guides' && <Guides />}
+        {page === 'contact' && <Contact />}
+      </main>
+    </div>
   );
 }
 
 export default App;
-
