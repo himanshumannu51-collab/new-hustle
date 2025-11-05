@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import Home from './pages/Home';       // exact filename
-import Hustles from './pages/Hustles'; // exact filename
+import Home from './pages/Home';
+import Hustles from './pages/Hustles';
 import Guides from './pages/Guides';
 import Contact from './pages/Contact';
 
