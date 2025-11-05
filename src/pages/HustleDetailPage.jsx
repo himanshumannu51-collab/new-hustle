@@ -1,14 +1,13 @@
 import React from 'react';
 
-function HustleDetail({ hustle }) {
+function HustleDetail({ hustle, goBack }) {
   return (
     <div>
-      <h1>{hustle?.title || "Hustle Detail"}</h1>
-      <p>{hustle?.description || "Description of the hustle goes here."}</p>
-      <button onClick={() => window.history.back()}>Back to Hustles</button>
+      <h1>{hustle.title}</h1>
+      <p>{hustle.description}</p>
+      <button onClick={goBack}>Back to Hustles</button>
     </div>
   );
 }
 
 export default HustleDetail;
-
